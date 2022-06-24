@@ -34,10 +34,6 @@ jobs:
             set -vxeo pipefail
             conda env list
             pip install -r requirements.txt
-            ./run_cookiecutter_example.py
-            pip install -e example/
-            ./copy_user_content.sh
-            pytest example/
             
       - name: Build docs
         shell: bash -l {0}
