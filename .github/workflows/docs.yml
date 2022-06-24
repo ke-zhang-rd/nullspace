@@ -28,6 +28,10 @@ jobs:
           miniconda-version: "latest"
           python-version: ${{ matrix.python-version }}
           
+      - name: Install
+        shell: bash -l {0}
+        run: source continuous_integration/scripts/install.sh
+
       - name: Build example code
         shell: 'script --return --quiet --command "bash -l {0}"'
         run: |
