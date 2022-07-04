@@ -2,6 +2,12 @@ import numpy as np
 import sympy as sp
 from sympy import Matrix, Array
 
+from ._version import get_versions
+
+
+__version__ = get_versions()['version']
+del get_versions
+
 
 def ensure_positive_Z(u, vt, u_based_decision=True):
     '''
