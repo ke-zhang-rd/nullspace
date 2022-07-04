@@ -178,18 +178,18 @@ def autodiff_svd(A, q_star, *, symbolic=False):
 
     Returns
     -------
-    dU : (Q. m, K) array
+    du : (Q, M, K) array
         Partial derivatives/gradient of U with respect to each variables in q star.
-        Each variable matches a (m, k) matrix. Q is number of variables. Return
+        Each variable matches a (M, K) matrix. Q is number of variables. Return
         sympy.Array if symbolic=True.
-    dS : (0, k, k) array
+    ds : (0, K, K) array
         Partial derivatives/gradient of S with respect to each variables in q star,
-        Each variable matches a (m, k) matrix. k=min(m, n). (..., k, k) is a strict
+        Each variable matches a (M, K) matrix. K = min(M, N). (..., K, K) is a strict
         diagonal matrix which is quaranteed by Hadamard operation. check examples
-        for details. Return sympy.Array if symbolic=True.
-    dV : (Q, n, k) array
+        for details. Return 'sympy.Array' if symbolic=True.
+    dv : (Q, N, K) array
         Partial derivatives/gradient of V(NOT VT) with respect to each variables in
-        g_star. Each variable matches a (n, k) matrix. Return sympy.Array if
+        q_star. Each variable matches a (N, K) matrix. Return 'sympy.Array' if
         symbolic=True
 
     See Also
@@ -202,7 +202,7 @@ def autodiff_svd(A, q_star, *, symbolic=False):
     ----------
     .. [1] James Townsend. Differentiating the Singular Value Decomposition.
     .. [2] Mike Giles. An extended collection of matrix derivative results
-         for forward and reverse mode algorithmic differentiation.
+       for forward and reverse mode algorithmic differentiation.
 
     Examples
     --------
@@ -212,67 +212,67 @@ def autodiff_svd(A, q_star, *, symbolic=False):
     ... A = Matrix([[2*q0,          1,    q0**3 + 2*q1, sin(q0) + q1],
                    [q0**2 - q1**2,  2*q1, 2*q0 + q1**3, cos(q0) + q1],
                    [q0**2 + q1**2,  2,    3,            sin(q0) + cos(q1)]])
-    >>> dU, dS, dV = autodiff svd(A, q_star)
-    >>> dU.shape
+    >>> du, ds, dv = autodiff svd(A, q_star)
+    >>> du.shape
     (2, 3, 3)
-    >>> dS.shape
+    >>> ds.shape
     (2, 3, 3)
-    >>>dV.shape
+    >>>dv.shape
     (2, 4, 3)
-    >>> dU_sym, dS_sym, dV_sym = autodiff_svd(A, q_star, symbolic=True)
+    >>> du_sym, ds_sym, dv_sym = autodiff_svd(A, q_star, symbolic=True)
     '''
-    m, n = A.shape
-    k = min(m, n)
+    M, N = A.shape
+    K = min(M, N)
     Q = len(q_star)
     # For a specific q0 and q1, get U_star, S_star and V_star_T.
     A_star = np.array(A.subs(q_star), dtype=float)
     U_star, S_star_1d, V_star_T = svd_regulated(A_star)  # U star (m, k), S star 1d (k, 1),
-    U_star = U_star[:, :k]  # Use economic U (m, k)
-    V_star_T = V_star_T[:k, :]  # Use economic VT (k, n)
+    U_star = U_star[:, :K]  # Use economic U (m, k)
+    V_star_T = V_star_T[:K, :]  # Use economic VT (k, n)
     S_star = np.diag(S_star_1d)  # Construct S (k, k)
     S_star_inv = np.diag(np.reciprocal(S_star_1d))
-    Ik = sp.eye(k)
+    Ik = sp.eye(K)
     U_star_T = U_star.T
     V_star = V_star_T.T
 
     # F
     F_star = Matrix([[0 if i == j else 1 / (S_star_1d[j]**2 - S_star_1d[i]**2)
-                    for j in range(k)]
-                    for i in range(k)])
+                    for j in range(K)]
+                    for i in range(K)])
 
     # dA
     # Reshape A to 1d vector for convenience of jacobian calculation, will reshape back to 2
-    A_element_wise = A.reshape(m * n, 1)
+    A_element_wise = A.reshape(M * N, 1)
 
     q_var = Matrix(list(q_star.keys()))  # (g 0, q 1, qi. .., q Q-1]
     dA_element_wise = A_element_wise.jacobian(q_var)  # in shape (m*n, Q)
-    # Reserve list of dA, d5, dU and dV for each q variables. E.X. dA lsti] is dA with resp
+    # Reserve list of dA, d5, du and dv for each q variables. E.X. dA lsti] is dA with resp
     dA_lst = [None] * Q
-    dS_lst = [None] * Q
-    dU_lst = [None] * Q
-    dV_lst = [None] * Q
+    ds_lst = [None] * Q
+    du_lst = [None] * Q
+    dv_lst = [None] * Q
 
-    Im = sp.eye(m)
-    In = sp.eye(n)
+    Im = sp.eye(M)
+    In = sp.eye(N)
     for i in range(Q):
         # Get matrix dA of eq(6) wrt qi, each element in dA lst is dA wrt qi. dA wrt gi is
-        dA_lst[i] = dA_element_wise.T[i, :].reshape(m, n)
+        dA_lst[i] = dA_element_wise.T[i, :].reshape(M, N)
         # Use @ instead of * force all binary operation between np.array(s) and sp.Matrix(s)
-        dU_lst[i] = U_star @ F_star.multiply_elementwise(U_star_T @ dA_lst[i] @ V_star @ S_star
+        du_lst[i] = U_star @ F_star.multiply_elementwise(U_star_T @ dA_lst[i] @ V_star @ S_star
                                                          + S_star @ V_star_T @ dA_lst[i].T @ U_star)
         + (Im - U_star @ U_star_T) @ dA_lst[i] @ V_star @ S_star_inv
-        dS_lst[i] = Ik.multiply_elementwise(U_star_T @ dA_lst[i] @ V_star)
-        dV_lst[i] = V_star @ F_star.multiply_elementwise(S_star @ U_star_T @ dA_lst[i] @ V_star
+        ds_lst[i] = Ik.multiply_elementwise(U_star_T @ dA_lst[i] @ V_star)
+        dv_lst[i] = V_star @ F_star.multiply_elementwise(S_star @ U_star_T @ dA_lst[i] @ V_star
                                                          + V_star_T @ dA_lst[i].T @ U_star @ S_star)
         + (In - V_star @ V_star_T) @ dA_lst[i].T @ U_star @ S_star_inv
     # Build a 3D tensor for all q variables
-    dU_tensor = Array([e.tolist() for e in dU_lst])  # (0,m,
-    dS_tensor = Array([e.tolist() for e in dS_lst])  # (Q.k.
-    dV_tensor = Array([e.tolist() for e in dV_lst])  # (Q, n,kJ
+    du_tensor = Array([e.tolist() for e in du_lst])  # (Q, M, K)
+    ds_tensor = Array([e.tolist() for e in ds_lst])  # (Q, K, K)
+    dv_tensor = Array([e.tolist() for e in dv_lst])  # (Q, N, K)
 
     if symbolic:
-        return dU_tensor, dS_tensor, dV_tensor
+        return du_tensor, ds_tensor, dv_tensor
     else:
-        return (np.array(dU_tensor.subs(q_star), dtype=float),
-                np.array(dS_tensor.subs(q_star), dtype=float),
-                np.array(dV_tensor.subs(q_star), dtype=float))
+        return (np.array(du_tensor.subs(q_star), dtype=float),
+                np.array(ds_tensor.subs(q_star), dtype=float),
+                np.array(dv_tensor.subs(q_star), dtype=float))
