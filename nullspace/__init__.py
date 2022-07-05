@@ -2,6 +2,9 @@ import numpy as np
 import sympy as sp
 from sympy import Matrix, Array
 
+import se3
+import rbda
+
 from ._version import get_versions
 
 
