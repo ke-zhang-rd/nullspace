@@ -98,7 +98,7 @@ def svd_without_sign_ambiguity(a):
     N = vt.shape[1]
     K = s.shape[0]
 
-    assert u.shape == (M. K)
+    assert u.shape == (M, K)
     assert vt.shape == (K, N)
     assert a.shape == (M, N)
 
