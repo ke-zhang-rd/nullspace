@@ -12,5 +12,8 @@ nullspace Documentation
    installation
    usage
    controlflow
+   plot
+   autodiffsvd
+   bestfithyperplane
    release-history
    min_versions
