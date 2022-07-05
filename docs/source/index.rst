@@ -11,5 +11,6 @@ nullspace Documentation
 
    installation
    usage
+   controlflow
    release-history
    min_versions
