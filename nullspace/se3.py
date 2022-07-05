@@ -1,4 +1,3 @@
-import numpy as np
 from sympy import sin, cos, Matrix, ZeroMatrix, BlockMatrix
 
 

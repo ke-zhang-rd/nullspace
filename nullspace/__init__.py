@@ -262,12 +262,12 @@ def autodiff_svd(A, q_star, *, symbolic=False):
         dA_lst[i] = dA_element_wise.T[i, :].reshape(M, N)
         # Use @ instead of * force all binary operation between np.array(s) and sp.Matrix(s)
         du_lst[i] = U_star @ F_star.multiply_elementwise(U_star_T @ dA_lst[i] @ V_star @ S_star
-                                                         + S_star @ V_star_T @ dA_lst[i].T @ U_star)
-        + (Im - U_star @ U_star_T) @ dA_lst[i] @ V_star @ S_star_inv
+                                                         + S_star @ V_star_T @ dA_lst[i].T @ U_star) \
+            + (Im - U_star @ U_star_T) @ dA_lst[i] @ V_star @ S_star_inv
         ds_lst[i] = Ik.multiply_elementwise(U_star_T @ dA_lst[i] @ V_star)
         dv_lst[i] = V_star @ F_star.multiply_elementwise(S_star @ U_star_T @ dA_lst[i] @ V_star
-                                                         + V_star_T @ dA_lst[i].T @ U_star @ S_star)
-        + (In - V_star @ V_star_T) @ dA_lst[i].T @ U_star @ S_star_inv
+                                                         + V_star_T @ dA_lst[i].T @ U_star @ S_star) \
+            + (In - V_star @ V_star_T) @ dA_lst[i].T @ U_star @ S_star_inv
     # Build a 3D tensor for all q variables
     du_tensor = Array([e.tolist() for e in du_lst])  # (Q, M, K)
     ds_tensor = Array([e.tolist() for e in ds_lst])  # (Q, K, K)
