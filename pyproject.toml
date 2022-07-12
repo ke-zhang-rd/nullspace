@@ -20,9 +20,9 @@ exclude = '''
 '''
 [build-system]
 requires = [
+    "versioneer",
     "setuptools",
     "wheel",
-    "versioneer",
     "cython>=0.25",
     "numpy>=1.13.4;python_version!='3.5'",
     "numpy>=1.13.4,<=1.15.2;python_version=='3.5'"
