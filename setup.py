@@ -33,12 +33,6 @@ with open(path.join(here, 'requirements.txt')) as requirements_file:
     # Parse requirements.txt, ignoring any commented-out lines.
     requirements = [line for line in requirements_file.read().splitlines()
                     if not line.startswith('#')]
-'''
-if not path.exists('rbdl.so'):
-	print("""The setup.py script should be executed from the build directory.""")
-	sys.exit(1)
-'''
-
 
 setup(
     name='nullspace',
@@ -72,11 +66,8 @@ setup(
         'Programming Language :: Python :: 3',
     ],
     include_dirs=[numpy.get_include()],
-    ext_modules = cythonize(Extension(
-        "nullspace.svd_wrapper",
-        sources=["nullspace/python/svd_wrapper.pyx"],
-        language="c",
-    )),
-    data_files = [('svd_wrapper.cpython-310-darwin.so')],
-
+    ext_modules=cythonize(Extension("nullspace.svd_wrapper",
+                                    sources=["nullspace/python/svd_wrapper.pyx"],
+                                    language="c")),
+    data_files=[('svd_wrapper.cpython-310-darwin.so')],
 )
