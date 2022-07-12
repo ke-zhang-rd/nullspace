@@ -2,6 +2,7 @@
 # These are the requirements for building the tutorial documentation.
 # See a separate requirements.txt file inside the cookiecutter.
 cookiecutter
+cython==3.0.0a10
 ipython
 matplotlib
 numpy
