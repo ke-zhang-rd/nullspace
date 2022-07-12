@@ -2,7 +2,7 @@
 # the documentation) but not necessarily required for _using_ it.
 codecov
 coverage
-cython==3.0.0a10
+cython
 flake8
 pytest
 sphinx
