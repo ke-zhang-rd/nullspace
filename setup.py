@@ -1,7 +1,9 @@
 from os import path
-from setuptools import setup, find_packages
+from setuptools import setup, find_packages, Extension
 import sys
 import versioneer
+from Cython.Build import cythonize
+import numpy
 
 
 # NOTE: This file must remain Python 2 compatible for the foreseeable future,
@@ -31,6 +33,11 @@ with open(path.join(here, 'requirements.txt')) as requirements_file:
     # Parse requirements.txt, ignoring any commented-out lines.
     requirements = [line for line in requirements_file.read().splitlines()
                     if not line.startswith('#')]
+'''
+if not path.exists('rbdl.so'):
+	print("""The setup.py script should be executed from the build directory.""")
+	sys.exit(1)
+'''
 
 
 setup(
@@ -39,8 +46,8 @@ setup(
     cmdclass=versioneer.get_cmdclass(),
     description="Python package for doing science.",
     long_description=readme,
-    author="KZ",
-    author_email='kezhangx@outlook.com',
+    author="G",
+    author_email='abc@outlook.com',
     url='https://github.com/ke-zhang-rd/nullspace',
     python_requires='>={}'.format('.'.join(str(n) for n in min_version)),
     packages=find_packages(exclude=['docs', 'tests']),
@@ -64,4 +71,12 @@ setup(
         'Natural Language :: English',
         'Programming Language :: Python :: 3',
     ],
+    include_dirs=[numpy.get_include()],
+    ext_modules = cythonize(Extension(
+        "nullspace.svd_wrapper",
+        sources=["nullspace/python/svd_wrapper.pyx"],
+        language="c",
+    )),
+    data_files = [('svd_wrapper.cpython-310-darwin.so')],
+
 )
