@@ -69,5 +69,4 @@ setup(
     ext_modules=cythonize(Extension("nullspace.svd_wrapper",
                                     sources=["nullspace/python/svd_wrapper.pyx"],
                                     language="c")),
-    data_files=[('svd_wrapper.cpython-310-darwin.so')],
 )
