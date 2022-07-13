@@ -28,7 +28,7 @@
 # Includes from Eigen
 #
 # This is kept simple on purpose
-cdef extern from "<eigen3/Eigen/Core>" namespace "Eigen":
+cdef extern from "<Eigen/Core>" namespace "Eigen":
     cdef cppclass Matrix[T, U, V]:
         Matrix()
         T& operator()(int, int)
