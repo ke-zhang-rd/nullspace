@@ -28,6 +28,7 @@ jobs:
       run: |
         sudo apt-get update
         sudo apt-get install git build-essential cmake libeigen3-dev valgrind
+        ls /usr/include
     
     - name: Set up Python ${{ matrix.python-version }}
       uses: actions/setup-python@v2
