@@ -20,7 +20,6 @@ exclude = '''
 '''
 [build-system]
 requires = [
-    "versioneer",
     "setuptools",
     "wheel",
     "cython>=0.25",
