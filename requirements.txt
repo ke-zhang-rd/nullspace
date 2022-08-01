@@ -8,6 +8,7 @@ matplotlib
 numpy
 numpydoc
 nbsphinx
+pandoc
 pexpect
 pytest
 sphinx
