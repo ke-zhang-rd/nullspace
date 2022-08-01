@@ -19,7 +19,12 @@ jobs:
         run: |
           export REPOSITORY_NAME=${GITHUB_REPOSITORY#*/}  # just the repo, as opposed to org/repo
           echo "REPOSITORY_NAME=${REPOSITORY_NAME}" >> $GITHUB_ENV
-
+      - name: Dependencies C++
+        run: |
+          sudo apt-get update
+          sudo apt-get install git build-essential cmake libeigen3-dev valgrind
+          sudo ln -s /usr/include/eigen3/Eigen /usr/include/Eigen
+          ls /usr/include
       - name: Set up Python ${{ matrix.python-version }} with conda
         uses: conda-incubator/setup-miniconda@v2
         with:
