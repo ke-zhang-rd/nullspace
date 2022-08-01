@@ -14,6 +14,7 @@ nullspace Documentation
    controlflow
    plot
    autodiffsvd
+   links_params
    bestfithyperplane
    release-history
    min_versions
