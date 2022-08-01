@@ -7,6 +7,7 @@ ipython
 matplotlib
 numpy
 numpydoc
+nbsphinx
 pexpect
 pytest
 sphinx
