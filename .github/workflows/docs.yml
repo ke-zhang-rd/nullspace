@@ -43,6 +43,8 @@ jobs:
             set -vxeo pipefail
             conda env list
             conda install pandoc
+            # Why pandoc need to be installed by conda
+            # https://stackoverflow.com/a/71585691/10642305
             pip install -r requirements.txt
             
       - name: Build docs
