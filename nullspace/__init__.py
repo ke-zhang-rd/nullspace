@@ -209,7 +209,7 @@ def autodiff_svd(A, q_star, *, symbolic=False):
     Examples
     --------
     >>> from sympy import sin, cos, symbols, Matrix
-    >>> q0, q1 = symbols ('qû,ol'")
+    >>> q0, q1 = symbols ("q0, q1")
     ... q star = (q0: 1, q1: 2}
     ... A = Matrix([[2*q0,          1,    q0**3 + 2*q1, sin(q0) + q1],
                    [q0**2 - q1**2,  2*q1, 2*q0 + q1**3, cos(q0) + q1],
