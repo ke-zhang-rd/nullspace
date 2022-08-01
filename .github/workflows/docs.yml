@@ -42,6 +42,7 @@ jobs:
         run: |
             set -vxeo pipefail
             conda env list
+            conda install pandoc
             pip install -r requirements.txt
             
       - name: Build docs
