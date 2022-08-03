@@ -8,8 +8,9 @@ nullspace
 
 Python package for doing science.
 
+* `Documentation <https://ke-zhang-rd.github.io/nullspace>`_
 * Free software: 3-clause BSD license
-* Documentation: https://ke-zhang-rd.github.io/nullspace.
+
 
 Features
 --------
