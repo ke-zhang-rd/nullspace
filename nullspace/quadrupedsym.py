@@ -161,20 +161,3 @@ foot0 = simplify(foot0)
 foot1 = simplify(foot1)
 foot2 = simplify(foot2)
 foot3 = simplify(foot3)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
