@@ -19,6 +19,12 @@ jobs:
         uses: actions/setup-python@v2
         with:
           python-version: '3.x'
+      - name: Dependencies C++
+        run: |
+          sudo apt-get update
+          sudo apt-get install git build-essential cmake libeigen3-dev valgrind
+          sudo ln -s /usr/include/eigen3/Eigen /usr/include/Eigen
+          ls /usr/include          
       - name: Install
         shell: bash -l {0}
         run: source continuous_integration/scripts/install.sh      
