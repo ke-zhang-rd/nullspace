@@ -1,9 +1,11 @@
-#include "cppTypes.h"
+#include <cmath>
 #include <iostream>
+#include <sstream>
+#include <stdexcept>
 
+#include "MathUtilities.h"
+#include "cppTypes.h"
 
 namespace Optimization {
-
-	Mat3<float> ensure_positive_Z(Mat3<float>, Mat3<float>, bool);
-
+	void ensure_positive_Z(Mat3<float>&, Mat3<float>&, bool);
 }
