@@ -1,5 +1,6 @@
 from sympy import symbols, simplify
 from sympy import eye, Matrix, ZeroMatrix
+import yaml
 
 
 from se3 import getr, SXForm, Ex, Ey, perfect_Ez_pi
@@ -11,41 +12,41 @@ x1, y1, z1 = symbols('x1, y1, z1', real=True)
 x2, y2, z2 = symbols('x2, y2, z2', real=True)
 x3, y3, z3 = symbols('x3, y3, z3', real=True)
 
-x0, y0, z0 = symbols('x0, y0, z0', real=True)
-x0, y0, z0 = symbols('x0, y0, z0', real=True)
-x0, y0, z0 = symbols('x0, y0, z0', real=True)
+x6, y6, z6 = symbols('x6, y6, z6', real=True)
+x7, y7, z7 = symbols('x7, y7, z7', real=True)
+x8, y8, z8 = symbols('x8, y8, z8', real=True)
 
-x0, y0, z0 = symbols('x0, y0, z0', real=True)
-x0, y0, z0 = symbols('x0, y0, z0', real=True)
-x0, y0, z0 = symbols('x0, y0, z0', real=True)
+x9, y9, z9 = symbols('x9, y9, z9', real=True)
+x10, y10, z10 = symbols('x10, y10, z10', real=True)
+x11, y11, z11 = symbols('x11, y11, z11', real=True)
 
-x0, y0, z0 = symbols('x0, y0, z0', real=True)
-x0, y0, z0 = symbols('x0, y0, z0', real=True)
-x0, y0, z0 = symbols('x0, y0, z0', real=True)
+x12, y12, z12 = symbols('x12, y12, z12', real=True)
+x13, y13, z13 = symbols('x13, y13, z13', real=True)
+x14, y14, z14 = symbols('x14, y14, z14', real=True)
 
-x0, y0, z0 = symbols('x0, y0, z0', real=True)
-x0, y0, z0 = symbols('x0, y0, z0', real=True)
-x0, y0, z0 = symbols('x0, y0, z0', real=True)
+x15, y15, z15 = symbols('x15, y15, z15', real=True)
+x16, y16, z16 = symbols('x16, y16, z16', real=True)
+x17, y17, z17 = symbols('x17, y17, z17', real=True)
 
 
 r0 = Matrix([x0, y0, z0])
-r1 = Matrix([x0, y0, z0])
-r2 = Matrix([x0, y0, z0])
-r3 = Matrix([x0, y0, z0])
+r1 = Matrix([x1, y1, z1])
+r2 = Matrix([x2, y2, z2])
+r3 = Matrix([x3, y3, z3])
 
-r6 = Matrix([x0, y0, z0])
-r7 = Matrix([x0, y0, z0])
-r8 = Matrix([x0, y0, z0])
-r9 = Matrix([x0, y0, z0])
-r10 = Matrix([x0, y0, z0])
-r11 = Matrix([x0, y0, z0])
-r12 = Matrix([x0, y0, z0])
-r13 = Matrix([x0, y0, z0])
+r6 = Matrix([x6, y6, z6])
+r7 = Matrix([x7, y7, z7])
+r8 = Matrix([x8, y8, z8])
+r9 = Matrix([x9, y9, z9])
+r10 = Matrix([x10, y10, z10])
+r11 = Matrix([x11, y11, z11])
+r12 = Matrix([x12, y12, z12])
+r13 = Matrix([x13, y13, z13])
 
-r14 = Matrix([x0, y0, z0])
-r15 = Matrix([x0, y0, z0])
-r16 = Matrix([x0, y0, z0])
-r17 = Matrix([x0, y0, z0])
+r14 = Matrix([x14, y14, z14])
+r15 = Matrix([x15, y15, z15])
+r16 = Matrix([x16, y16, z16])
+r17 = Matrix([x17, y17, z17])
 
 XJ = [SXForm(Ex(q_sym[0]), ZeroMatrix(3, 1)),
       SXForm(Ey(q_sym[1]), ZeroMatrix(3, 1)),
@@ -165,3 +166,66 @@ foot0 = simplify(foot0)
 foot1 = simplify(foot1)
 foot2 = simplify(foot2)
 foot3 = simplify(foot3)
+
+
+def links_reader(file):
+
+    with open(file, 'r') as stream:
+        try:
+            out = yaml.safe_load(stream)
+        except yaml.YAMLError as exc:
+            print(exc)
+
+    links_params = {x6: out['abad_location'][0],
+                    y6: -out['abad_location'][1],
+                    z6: out['abad_location'][2],
+                    x7: out['hip_location'][0],
+                    y7: -out['hip_location'][1],
+                    z7: out['hip_location'][2],
+                    x8: out['knee_location'][0],
+                    y8: out['knee_location'][1],
+                    z8: out['knee_location'][2],
+                    x0: 0,
+                    y0: 0,
+                    z0: -out['knee_link_length'],
+                    # Leg 1
+                    x9: out['abad_location'][0],
+                    y9: out['abad_location'][1],
+                    z9: out['abad_location'][2],
+                    x10: out['hip_location'][0],
+                    y10: out['hip_location'][1],
+                    z10: out['hip_location'][2],
+                    x11: out['knee_location'][0],
+                    y11: out['knee_location'][1],
+                    z11: out['knee_location'][2],
+                    x1: 0,
+                    y1: 0,
+                    z1: -out['knee_link_length'],
+                    # Leg 2
+                    x12: -out['abad_location'][0],
+                    y12: -out['abad_location'][1],
+                    z12: out['abad_location'][2],
+                    x13: out['hip_location'][0],
+                    y13: -out['hip_location'][1],
+                    z13: out['hip_location'][2],
+                    x14: out['knee_location'][0],
+                    y14: out['knee_location'][1],
+                    z14: out['knee_location'][2],
+                    x2: 0,
+                    y2: 0,
+                    z2: -out['knee_link_length'],
+                    # Leg 3
+                    x15: -out['abad_location'][0],
+                    y15: out['abad_location'][1],
+                    z15: out['abad_location'][2],
+                    x16: out['hip_location'][0],
+                    y16: out['hip_location'][1],
+                    z16: out['hip_location'][2],
+                    x17: out['knee_location'][0],
+                    y17: out['knee_location'][1],
+                    z17: out['knee_location'][2],
+                    x3: 0,
+                    y3: 0,
+                    z3: -out['knee_link_length']}
+
+    return links_params
