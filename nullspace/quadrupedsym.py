@@ -1,4 +1,8 @@
 from sympy import symbols, simplify
+from sympy import eye, Matrix, ZeroMatrix
+
+
+from se3 import getr, SXForm, Ex, Ey, perfect_Ez_pi
 
 q_sym = symbols('q0:12')
 
@@ -55,31 +59,31 @@ XJ = [SXForm(Ex(q_sym[0]), ZeroMatrix(3, 1)),
       SXForm(Ex(q_sym[9]), ZeroMatrix(3, 1)),
       SXForm(Ey(q_sym[10]), ZeroMatrix(3, 1)),
       SXForm(Ey(q_sym[11]), ZeroMatrix(3, 1))]
-      
-Xtree = [None, #0
-         None, #1
-         None, #2
-         None, #3
-         None, #4
-         None, #5
+
+Xtree = [None,  # 0
+         None,  # 1
+         None,  # 2
+         None,  # 3
+         None,  # 4
+         None,  # 5
          SXForm(eye(3), r6),
          SXForm(perfect_Ez_pi, r7),
          SXForm(eye(3), r8),
          SXForm(eye(3), r9),
-         SXForm(perfect_EZ_pi, r10),
-         SXForm(eye(3), r11)
+         SXForm(perfect_Ez_pi, r10),
+         SXForm(eye(3), r11),
          SXForm(eye(3), r12),
-         SXForm(perfect_EZ_pi, r13),
+         SXForm(perfect_Ez_pi, r13),
          SXForm(eye(3), r14),
          SXForm(eye(3), r15),
-         SXForm(perfect_EZ_pi, r16),
-         SXForm(eye(3), r17)
+         SXForm(perfect_Ez_pi, r16),
+         SXForm(eye(3), r17)]
 
 gcLocation = [SXForm(eye(3), r0),
               SXForm(eye(3), r1),
               SXForm(eye(3), r2),
               SXForm(eye(3), r3)]
-  
+
 Abad0_SX = Xtree[6]
 Abad1_SX = Xtree[9]
 Abad2_SX = Xtree[12]
@@ -142,10 +146,10 @@ knee1 = simplify(knee1)
 knee2 = simplify(knee2)
 knee3 = simplify(knee3)
 
-T0 = gcLocation[0] * XJ[2] * knee0_SX
-T1 = gcLocation[1] * XJ[5] * knee1_SX
-T2 = gcLocation[2] * XJ[8] * knee2_SX
-T3 = gcLocation[3] * XJ[11] * knee3_SX
+T0 = gcLocation[0] * XJ[2] * Knee0_SX
+T1 = gcLocation[1] * XJ[5] * Knee1_SX
+T2 = gcLocation[2] * XJ[8] * Knee2_SX
+T3 = gcLocation[3] * XJ[11] * Knee3_SX
 
 T0 = simplify(T0)
 T1 = simplify(T1)
