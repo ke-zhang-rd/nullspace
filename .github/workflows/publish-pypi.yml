@@ -27,8 +27,8 @@ jobs:
           ls /usr/include          
       - name: Install dependencies
         run: |
-          python -m pip install --upgrade pip
-          pip install wheel twine setuptools numpy cython
+          python -m pip install --upgrade pip setuptools twine wheel numpy cython
+
       - name: Build and publish
         env:
           TWINE_USERNAME: __token__
