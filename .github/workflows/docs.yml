@@ -1,4 +1,4 @@
-name: Publish document on github page
+name: Docs on github page
 
 on: [push, pull_request]
 
