@@ -3,6 +3,7 @@ from setuptools import setup, find_packages, Extension
 import sys
 import versioneer
 from Cython.Build import cythonize
+import numpy
 
 
 # NOTE: This file must remain Python 2 compatible for the foreseeable future,
@@ -64,6 +65,7 @@ setup(
         'Natural Language :: English',
         'Programming Language :: Python :: 3',
     ],
+    include_dirs=[numpy.get_include()],
     ext_modules=cythonize(Extension("nullspace.svd_wrapper",
                                     sources=["nullspace/python/svd_wrapper.pyx"],
                                     language="c")),
