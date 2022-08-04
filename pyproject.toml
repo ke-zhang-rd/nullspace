@@ -21,7 +21,7 @@ exclude = '''
 [build-system]
 requires = [
     "setuptools",
-    "versioneer",
+    "versioneer-518",
     "wheel",
     "cython>=0.25",
     "numpy>=1.13.4;python_version!='3.5'",
