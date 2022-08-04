@@ -1,4 +1,4 @@
-name: Check Code Style
+name: Flake8 Code Style
 
 on: [push, pull_request]
 
