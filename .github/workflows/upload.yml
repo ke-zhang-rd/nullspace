@@ -9,35 +9,7 @@ on:
     types: [created]
 
 jobs:
-  deploy:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - name: Set up Python
-        uses: actions/setup-python@v2
-        with:
-          python-version: '3.x'
-      - name: Dependencies C++
-        run: |
-          sudo apt-get update
-          sudo apt-get install git build-essential cmake libeigen3-dev valgrind
-          sudo ln -s /usr/include/eigen3/Eigen /usr/include/Eigen
-          ls /usr/include          
-      - name: Install dependencies
-        run: |
-          python -m pip install --upgrade pip setuptools twine wheel numpy cython
-
-      - name: Build and publish
-        env:
-          TWINE_USERNAME: __token__
-          # The PYPI_PASSWORD must be a pypi token with the "pypi-" prefix with sufficient permissions to upload this package
-          # https://pypi.org/help/#apitoken
-          TWINE_PASSWORD: ${{ secrets.PYPI_API_TOKEN }}
-        run: |
-          python setup.py sdist bdist_wheel
-          twine upload dist/*
-          
-    build_wheels:
+  build_wheels:
     name: Build wheels on ${{ matrix.os }}
     runs-on: ${{ matrix.os }}
     strategy:
@@ -45,6 +17,16 @@ jobs:
         os: [ubuntu-20.04, windows-2019, macos-11]
 
     steps:
+      - uses: actions/checkout@v2
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.x'       
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip setuptools twine wheel numpy cython
+    
+    
       - uses: actions/checkout@v3
 
       - name: Build wheels
@@ -85,5 +67,5 @@ jobs:
       - uses: pypa/gh-action-pypi-publish@v1.5.0
         with:
           user: __token__
-          password: ${{ secrets.pypi_password }}
+          password: ${{ secrets.PYPI_API_TOKEN }}
           # To test: repository_url: https://test.pypi.org/legacy/
