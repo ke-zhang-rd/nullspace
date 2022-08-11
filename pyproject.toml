@@ -27,7 +27,8 @@ requires = [
     "numpy>=1.13.4;python_version!='3.5'",
     "numpy>=1.13.4,<=1.15.2;python_version=='3.5'"
 ]
-[tool.cibuildwheel]
+build-backend = "setuptools.build_meta"
+
+[tool.cibuildwheel.linux]
 before-all = "apt install libpng-dev"
 
-build-backend = "setuptools.build_meta"
