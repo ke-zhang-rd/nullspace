@@ -30,8 +30,5 @@ requires = [
 build-backend = "setuptools.build_meta"
 
 [tool.cibuildwheel.linux]
-before-all = [
-    "bash sudo apt-get update",
-    "bash sudo apt-get install git build-essential cmake libeigen3-dev valgrind",
-    "bash sudo ln -s /usr/include/eigen3/Eigen /usr/include/Eigen"]
+before-all = "bash continuous_integration/scripts/pre_build.sh"
 
