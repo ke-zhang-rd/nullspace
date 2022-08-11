@@ -1,6 +1,7 @@
 # List required packages in this file, one per line.
 # These are the requirements for building the tutorial documentation.
 # See a separate requirements.txt file inside the cookiecutter.
+cibuildwheel
 cookiecutter
 cython
 ipython
