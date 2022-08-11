@@ -1,4 +1,4 @@
-#!/bin/bash
+set -xe
 
 apt-get update
 apt-get install git build-essential cmake libeigen3-dev valgrind
