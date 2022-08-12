@@ -30,5 +30,5 @@ requires = [
 build-backend = "setuptools.build_meta"
 
 [tool.cibuildwheel.linux]
-before-all = "bash continuous_integration/scripts/pre_build.sh"
+before-build = "bash continuous_integration/scripts/pre_build.sh"
 
