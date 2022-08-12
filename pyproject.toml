@@ -30,7 +30,7 @@ requires = [
 build-backend = "setuptools.build_meta"
 
 [tool.cibuildwheel]
-skip = ["*-win32", "*-manylinux_i686", "*-musllinux-*", "pp-*"]
+skip = ["*-win32", "*-manylinux_i686", "*-musllinux_*", "pp-*"]
 
 [tool.cibuildwheel.linux]
 before-build = "bash continuous_integration/scripts/pre_build.sh"
