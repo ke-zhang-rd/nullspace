@@ -30,8 +30,8 @@ requires = [
 build-backend = "setuptools.build_meta"
 
 [tool.cibuildwheel.linux]
-before-build = "bash continuous_integration/scripts/pre_build.sh"
+before-all = "bash continuous_integration/scripts/pre_build.sh"
 
 [[tool.cibuildwheel.overrides]]
-select = "cp3{9,10}-*"
+select = "cp3{6,7,9,10}-*"
 manylinux-x86_64-image = "manylinux_2_24"
