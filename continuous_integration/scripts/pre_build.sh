@@ -1,6 +1,6 @@
 set -xe
 
-apt-get update
-apt-get install git build-essential cmake libeigen3-dev valgrind
+apt-get -y update
+apt-get -y install git build-essential cmake libeigen3-dev valgrind
 ln -s /usr/include/eigen3/Eigen /usr/include/Eigen
 ls /usr/include      
