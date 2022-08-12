@@ -34,4 +34,4 @@ before-build = "bash continuous_integration/scripts/pre_build.sh"
 
 [[tool.cibuildwheel.overrides]]
 select = "cp3{7,8,9}-*"
-manylinux-x86_64-image = "manylinux2_24"
+manylinux-x86_64-image = "manylinux_2_24"
