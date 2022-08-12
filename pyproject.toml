@@ -28,10 +28,3 @@ requires = [
     "numpy>=1.13.4,<=1.15.2;python_version=='3.5'"
 ]
 build-backend = "setuptools.build_meta"
-
-[tool.cibuildwheel.linux]
-before-all = "bash continuous_integration/scripts/pre_build.sh"
-
-[[tool.cibuildwheel.overrides]]
-select = "cp3{6,7,9,10}-*"
-manylinux-x86_64-image = "manylinux_2_24"
