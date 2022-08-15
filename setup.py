@@ -69,7 +69,7 @@ setup(
     ext_modules=cythonize(Extension("nullspace.svd_wrapper",
                                     sources=["nullspace/python/svd_wrapper.pyx"],
                                     define_macros=[("NPY_NO_DEPRECATED_API", "NPY_1_7_API_VERSION")],
-                                    # Based on suggestion on 
+                                    # Based on suggestion on
                                     # https://cython.readthedocs.io/en/latest/src/userguide/source_files_and_compilation.html#compiling-with-the-cythonize-command
                                     language="c")),
 )
