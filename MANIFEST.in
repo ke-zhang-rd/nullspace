@@ -13,5 +13,8 @@ include versioneer.py
 include nullspace/_version.py
 include nullspace/python
 
+global-include *.pyx
+global-include *.pxd
+
 # If including data files in the package, add them like:
 # include path/to/data_file
