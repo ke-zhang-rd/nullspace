@@ -52,11 +52,10 @@ setup(
     },
     include_package_data=True,
     package_data={
-        'nullspace.svd_wrapper': ["nullspace/include/svd.h", "nullspace/python/svd_wrapper.pyx"
-            # When adding files here, remember to update MANIFEST.in as well,
-            # or else they will not be included in the distribution on PyPI!
-            # 'path/to/data_file',
-        ]
+        'nullspace.svd_wrapper': ["nullspace/include/svd.h", "nullspace/python/svd_wrapper.pyx"]
+        # When adding files here, remember to update MANIFEST.in as well,
+        # or else they will not be included in the distribution on PyPI!
+        # 'path/to/data_file',
     },
     install_requires=requirements,
     license="BSD (3-clause)",
