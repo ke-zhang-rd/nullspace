@@ -52,7 +52,7 @@ setup(
     },
     include_package_data=True,
     package_data={
-        'nullspace': [
+        'nullspace.svd_wrapper': ["nullspace/include/svd.h", "nullspace/python/svd_wrapper.pyx"
             # When adding files here, remember to update MANIFEST.in as well,
             # or else they will not be included in the distribution on PyPI!
             # 'path/to/data_file',
@@ -69,6 +69,7 @@ setup(
     ext_modules=cythonize(Extension("nullspace.svd_wrapper",
                                     sources=["nullspace/python/svd_wrapper.pyx"],
                                     define_macros=[("NPY_NO_DEPRECATED_API", "NPY_1_7_API_VERSION")],
+                                    include_dirs = [numpy.get_include(), "nullspace/include"],
                                     # Based on suggestion on
                                     # https://cython.readthedocs.io/en/latest/src/userguide/source_files_and_compilation.html#compiling-with-the-cythonize-command
                                     language="c++")),
