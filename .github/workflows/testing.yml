@@ -28,6 +28,7 @@ jobs:
       run: |
         export REPOSITORY_NAME=${GITHUB_REPOSITORY#*/}  # just the repo, as opposed to org/repo
         echo "REPOSITORY_NAME=${REPOSITORY_NAME}" >> $GITHUB_ENV
+        export PYTHONPATH=../
     
     - name: Dependencies C++
       run: |
