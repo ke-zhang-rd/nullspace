@@ -1,7 +1,7 @@
 import numpy as np
-import nullspace
+from nullspace.svd_wrapper import xyz
 
 
 def test_xyz():
     x = np.random.random((3))
-    print(dir(nullspace))
+    xyz(x)
