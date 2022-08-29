@@ -2,10 +2,10 @@
 import numpy as np
 cimport numpy as np
 # cimport csvd
-cimport eg
+cimport eigen
 
 
-cdef np.ndarray Vector3dToNumpy(eg.VectorXd cx):
+cdef np.ndarray Vector3dToNumpy(eigen.VectorXd cx):
     print('3')
     result = np.ndarray((cx.rows()))
     for i in range(cx.rows()):
@@ -14,9 +14,9 @@ cdef np.ndarray Vector3dToNumpy(eg.VectorXd cx):
     print('4')
     return result
 
-cdef eg.VectorXd NumpyToVector3d (np.ndarray[double, ndim=1, mode="c"] x):
+cdef eigen.VectorXd NumpyToVector3d (np.ndarray[double, ndim=1, mode="c"] x):
     print('1')
-    cdef eg.VectorXd cx = eg.VectorXd(3)
+    cdef eigen.VectorXd cx = eigen.VectorXd(3)
     print('2')
     for i in range(3):
         print('i: ', i)
