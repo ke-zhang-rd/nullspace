@@ -23,7 +23,12 @@ jobs:
     steps:
 
     - uses: actions/checkout@v2
-
+    
+    - name: Set environment variable
+      run: |
+        export REPOSITORY_NAME=${GITHUB_REPOSITORY#*/}  # just the repo, as opposed to org/repo
+        echo "REPOSITORY_NAME=${REPOSITORY_NAME}" >> $GITHUB_ENV
+    
     - name: Dependencies C++
       run: |
         sudo apt-get update
