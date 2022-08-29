@@ -68,7 +68,7 @@ setup(
     ext_modules=cythonize(Extension("nullspace.svd_wrapper",
                                     sources=["nullspace/python/svd_wrapper.pyx"],
                                     define_macros=[("NPY_NO_DEPRECATED_API", "NPY_1_7_API_VERSION")],
-                                    include_dirs=[numpy.get_include(), "nullspace/include"],
+                                    include_dirs=[numpy.get_include(), "nullspace/include", "."],
                                     # Based on suggestion on
                                     # https://cython.readthedocs.io/en/latest/src/userguide/source_files_and_compilation.html#compiling-with-the-cythonize-command
                                     language="c++")),
