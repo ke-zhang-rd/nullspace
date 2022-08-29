@@ -55,6 +55,8 @@ jobs:
     - name: Install
       shell: bash -l {0}
       run: source continuous_integration/scripts/editable_install.sh
+      # Looks only editable install could make pytest and cython extension build work together
+      # https://stackoverflow.com/questions/48330471/running-pytest-with-cython-how-to-compile-cython-modules-in-pytest
 
     - name: Install test requirements
       shell: bash -l {0}
