@@ -14,9 +14,9 @@ N = 4, X is a tetrahedron
 In a prioritized tasks definition:
 We might have a tasks from higher priority to lower:
 
-1. fixed distance between each end effectors, that's conbination of N
-2. there is a target position of Object
-3. there is a target orientation Object
+  1.fixed distance between each end effectors, that's conbination of N
+  2.there is a target position of Object
+  3.there is a target orientation Object
 
 These tasks could be achieved by nullspace method
 
