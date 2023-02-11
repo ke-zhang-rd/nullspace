@@ -9,7 +9,7 @@ nullspace Documentation
 .. toctree::
    :maxdepth: 2
    
-   philosopy
+   philosophy
    installation
    usage
    controlflow
