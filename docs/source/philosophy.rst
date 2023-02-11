@@ -6,9 +6,9 @@ If there are multiple end effectors need to coordinate move together. If we defi
 connection(virtual connection) between ee. This Object could have a orientation and position if a frame fix on it.
 
 If the number of end effector(num)
-N == 2, X is a line
-N == 3, X is a triangle
-N == 4, X is a tetrahedron
+N = 2, X is a line
+N = 3, X is a triangle
+N = 4, X is a tetrahedron
 
 
 In a prioritized tasks definition:
