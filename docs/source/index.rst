@@ -8,6 +8,7 @@ nullspace Documentation
 
 .. toctree::
    :maxdepth: 2
+   
    philosopy
    installation
    usage
