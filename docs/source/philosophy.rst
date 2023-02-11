@@ -24,5 +24,5 @@ Examples
 --------
 
 Humanoid robot hand(3 fingers)
-There is a triangle between 3 fingers. If you coordinate control task #2 and #3 together by considering lead of screw, bottle cap could be moved very
+There is a triangle between 3 fingers. If you coordinate control task 2 and 3 together by considering lead of screw, bottle cap could be moved very
 decently.
