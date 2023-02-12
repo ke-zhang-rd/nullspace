@@ -37,12 +37,12 @@ XJ = [SXForm(Ex(q_sym[0]), ZeroMatrix(3, 1)),
       SXForm(Ey(q_sym[10]), ZeroMatrix(3, 1)),
       SXForm(Ey(q_sym[11]), ZeroMatrix(3, 1))]
 
-Xtree = [None, # 0
-         None, # 1
-         None, # 2
-         None, # 3
-         None, # 4
-         None, # 5
+Xtree = [None,  # 0
+         None,  # 1
+         None,  # 2
+         None,  # 3
+         None,  # 4
+         None,  # 5
          SXForm(eye(3), r[6]),
          SXForm(perfect_Ez_pi, r[7]),
          SXForm(eye(3), r[8]),
@@ -84,7 +84,7 @@ abad1 = simplify(abad1)
 abad2 = simplify(abad2)
 abad3 = simplify(abad3)
 
-Hip0_SX = Xtree[7]  * XJ[0] * Abad0_SX
+Hip0_SX = Xtree[7] * XJ[0] * Abad0_SX
 Hip1_SX = Xtree[10] * XJ[3] * Abad1_SX
 Hip2_SX = Xtree[13] * XJ[6] * Abad2_SX
 Hip3_SX = Xtree[16] * XJ[9] * Abad3_SX
@@ -104,7 +104,7 @@ hip1 = simplify(hip1)
 hip2 = simplify(hip2)
 hip3 = simplify(hip3)
 
-Knee0_SX = Xtree[8]  * XJ[1] * Hip0_SX
+Knee0_SX = Xtree[8] * XJ[1] * Hip0_SX
 Knee1_SX = Xtree[11] * XJ[4] * Hip1_SX
 Knee2_SX = Xtree[14] * XJ[7] * Hip2_SX
 Knee3_SX = Xtree[17] * XJ[10] * Hip3_SX
@@ -124,9 +124,9 @@ knee1 = simplify(knee1)
 knee2 = simplify(knee2)
 knee3 = simplify(knee3)
 
-T0 = gcLocation[0] * XJ[2]  * Knee0_SX
-T1 = gcLocation[1] * XJ[5]  * Knee1_SX
-T2 = gcLocation[2] * XJ[8]  * Knee2_SX
+T0 = gcLocation[0] * XJ[2] * Knee0_SX
+T1 = gcLocation[1] * XJ[5] * Knee1_SX
+T2 = gcLocation[2] * XJ[8] * Knee2_SX
 T3 = gcLocation[3] * XJ[11] * Knee3_SX
 
 T0 = simplify(T0)
