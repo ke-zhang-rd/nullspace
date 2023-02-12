@@ -1,5 +1,5 @@
-from sympy import eye
-from sympy import symbols, simplify, Matrix, ZeroMatrix
+import yaml
+from sympy import eye, symbols, simplify, Matrix, ZeroMatrix
 
 from nullspace.se3 import Ex, Ey, SXForm, getr, perfect_Ez_pi
 
@@ -145,7 +145,6 @@ foot2 = simplify(foot2)
 foot3 = simplify(foot3)
 
 
-import yaml
 def construct_structure(file):
     with open(file, 'r') as stream:
         try:
