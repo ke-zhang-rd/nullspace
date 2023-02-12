@@ -2,7 +2,7 @@ import numpy as np
 import sympy as sp
 from sympy import Matrix, Array
 
-from . import rbda, se3
+from . import rbda, se3, models
 
 from ._version import get_versions
 
