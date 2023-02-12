@@ -1,13 +1,7 @@
-from sympy import sin, cos, eye
-from sympy import symbols, simplify, nsimplify
-from sympy import Array, Matrix, ZeroMatrix, BlockMatrix
+from sympy import eye
+from sympy import symbols, simplify, Matrix, ZeroMatrix
 
-import sympy as sp
-import numpy as np
-
-from nullspace.rbda import Rx, Ry, Rz
-from nullspace.se3 import hat, Ex, Ey, Ez, SXForm, getE, getr, perfect_Ez_pi
-from nullspace import ensure_positive_Z, autodiff_svd, svd_regulated
+from nullspace.se3 import Ex, Ey, SXForm, getr, perfect_Ez_pi
 
 
 # Robot model, without link length
@@ -47,12 +41,12 @@ XJ = [SXForm(Ex(q_sym[0]), ZeroMatrix(3, 1)),
       SXForm(Ey(q_sym[10]), ZeroMatrix(3, 1)),
       SXForm(Ey(q_sym[11]), ZeroMatrix(3, 1))]
 
-Xtree = [None, #0
-         None, #1
-         None, #2
-         None, #3
-         None, #4
-         None, #5
+Xtree = [None, # 0
+         None, # 1
+         None, # 2
+         None, # 3
+         None, # 4
+         None, # 5
          SXForm(eye(3), r[6]),
          SXForm(perfect_Ez_pi, r[7]),
          SXForm(eye(3), r[8]),
