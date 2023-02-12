@@ -152,7 +152,6 @@ def construct_structure(file):
         except yaml.YAMLError as exc:
             print(exc)
 
-
     links_params = {x[6]: out['abad'][0],
                     y[6]: -out['abad'][1],
                     z[6]: out['abad'][2],
@@ -205,4 +204,3 @@ def construct_structure(file):
                     y[3]: 0,
                     z[3]: -out['knee_link']}
     return links_params
-
