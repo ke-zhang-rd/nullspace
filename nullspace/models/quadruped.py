@@ -21,10 +21,6 @@ z = symbols('z0:18', real=True)
 r = tuple([Matrix([x[i], y[i], z[i]]) for i in range(18)])
 
 
-
-
-
-
 # XJ is the 12 joints transform in SXForm
 # WARNING： Ex and Ey in XJ
 
@@ -66,11 +62,7 @@ gcLocation = [SXForm(eye(3), r[0]),
               SXForm(eye(3), r[3])]
 
 
-
-
-
 # Intermidia variable and simplify
-
 
 Abad0_SX = Xtree[6]
 Abad1_SX = Xtree[9]
@@ -214,3 +206,4 @@ def construct_structure(file):
                     y[3]: 0,
                     z[3]: -out['knee_link']}
     return links_params
+
