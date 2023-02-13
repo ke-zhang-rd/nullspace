@@ -1,7 +1,7 @@
 import yaml
 from sympy import eye, symbols, simplify, Matrix, ZeroMatrix
 
-from nullspace.se3 import Ex, Ey, SXForm, getr, perfect_Ez_pi
+from nullspace.se3 import Ey, Ez, SXForm, getr, perfect_Ez_pi
 
 
 # Robot model, without link length
@@ -22,7 +22,7 @@ r = tuple([Matrix([x[i], y[i], z[i]]) for i in range(18)])
 
 
 # XJ is the 12 joints transform in SXForm
-# WARNING： Ex and Ey in XJ
+# WARNING： Ey and Ez in XJ
 
 XJ = [SXForm(Ez(q_sym[0]), ZeroMatrix(3, 1)),
       SXForm(Ey(q_sym[1]), ZeroMatrix(3, 1)),
