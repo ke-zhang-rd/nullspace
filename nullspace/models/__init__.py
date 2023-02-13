@@ -1,2 +1,3 @@
 from . import quadruped
-__all__ = ['quadruped',]
+from . import hand
+__all__ = ['quadruped', 'hand']
