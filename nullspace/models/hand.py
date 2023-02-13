@@ -24,16 +24,16 @@ r = tuple([Matrix([x[i], y[i], z[i]]) for i in range(18)])
 # XJ is the 12 joints transform in SXForm
 # WARNING： Ex and Ey in XJ
 
-XJ = [SXForm(Ex(q_sym[0]), ZeroMatrix(3, 1)),
+XJ = [SXForm(Ez(q_sym[0]), ZeroMatrix(3, 1)),
       SXForm(Ey(q_sym[1]), ZeroMatrix(3, 1)),
       SXForm(Ey(q_sym[2]), ZeroMatrix(3, 1)),
-      SXForm(Ex(q_sym[3]), ZeroMatrix(3, 1)),
+      SXForm(Ez(q_sym[3]), ZeroMatrix(3, 1)),
       SXForm(Ey(q_sym[4]), ZeroMatrix(3, 1)),
       SXForm(Ey(q_sym[5]), ZeroMatrix(3, 1)),
-      SXForm(Ex(q_sym[6]), ZeroMatrix(3, 1)),
+      SXForm(Ez(q_sym[6]), ZeroMatrix(3, 1)),
       SXForm(Ey(q_sym[7]), ZeroMatrix(3, 1)),
       SXForm(Ey(q_sym[8]), ZeroMatrix(3, 1)),
-      SXForm(Ex(q_sym[9]), ZeroMatrix(3, 1)),
+      SXForm(Ez(q_sym[9]), ZeroMatrix(3, 1)),
       SXForm(Ey(q_sym[10]), ZeroMatrix(3, 1)),
       SXForm(Ey(q_sym[11]), ZeroMatrix(3, 1))]
 
