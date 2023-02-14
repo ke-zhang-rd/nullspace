@@ -1,7 +1,7 @@
 import yaml
 from sympy import eye, symbols, simplify, Matrix, ZeroMatrix
 
-from nullspace.se3 import Ey, Ez, SXForm, getr, perfect_Ez_pi
+from nullspace.se3 import Ey, Ez, SXForm, getr
 
 
 # Robot model, without link length
@@ -50,7 +50,7 @@ Xtree = [None,  # 0
          SXForm(eye(3), r[10]),
          SXForm(eye(3), r[11]),
          SXForm(eye(3), r[12]),
-         SXForm(eye(e), r[13]),
+         SXForm(eye(3), r[13]),
          SXForm(eye(3), r[14]),
          SXForm(eye(3), r[15]),
          SXForm(eye(3), r[16]),
@@ -161,9 +161,9 @@ def construct_structure(file):
                     x[8]: out['knee'][0],
                     y[8]: out['knee'][1],
                     z[8]: out['knee'][2],
-                    x[0]: 0,
+                    x[0]: out['knee_link'],
+                    z[0]: 0,
                     y[0]: 0,
-                    z[0]: -out['knee_link'],
                     # Leg 1
                     x[9]: out['abad'][0],
                     y[9]: out['abad'][1],
@@ -174,12 +174,12 @@ def construct_structure(file):
                     x[11]: out['knee'][0],
                     y[11]: out['knee'][1],
                     z[11]: out['knee'][2],
-                    x[1]: 0,
+                    x[1]: out['knee_link'],
+                    z[1]: 0,
                     y[1]: 0,
-                    z[1]: -out['knee_link'],
                     # Leg 2
                     x[12]: -out['abad'][0],
-                    y[12]: -out['abad'][1],
+                    y[12]: out['abad'][1],
                     z[12]: out['abad'][2],
                     x[13]: -out['hip'][0],
                     y[13]: -out['hip'][1],
@@ -187,9 +187,9 @@ def construct_structure(file):
                     x[14]: out['knee'][0],
                     y[14]: out['knee'][1],
                     z[14]: out['knee'][2],
-                    x[2]: 0,
+                    x[2]: out['knee_link'],
                     y[2]: 0,
-                    z[2]: -out['knee_link'],
+                    z[2]: 0,
                     # Leg 3
                     x[15]: -out['abad'][0],
                     y[15]: out['abad'][1],
@@ -200,7 +200,7 @@ def construct_structure(file):
                     x[17]: out['knee'][0],
                     y[17]: out['knee'][1],
                     z[17]: out['knee'][2],
-                    x[3]: 0,
+                    x[3]: out['knee_link']}
                     y[3]: 0,
-                    z[3]: -out['knee_link']}
+                    z[3]: 0,
     return links_params
