@@ -156,7 +156,7 @@ def construct_structure(file):
                     y[6]: -out['abad'][1],
                     z[6]: out['abad'][2],
                     x[7]: out['hip'][0],
-                    y[7]: -out['hip'][1],
+                    y[7]: out['hip'][1],
                     z[7]: out['hip'][2],
                     x[8]: out['knee'][0],
                     y[8]: out['knee'][1],
@@ -182,12 +182,12 @@ def construct_structure(file):
                     y[12]: out['abad'][1],
                     z[12]: out['abad'][2],
                     x[13]: -out['hip'][0],
-                    y[13]: -out['hip'][1],
+                    y[13]: out['hip'][1],
                     z[13]: out['hip'][2],
-                    x[14]: out['knee'][0],
+                    x[14]: -out['knee'][0],
                     y[14]: out['knee'][1],
                     z[14]: out['knee'][2],
-                    x[2]: out['knee_link'],
+                    x[2]: -out['knee_link'],
                     y[2]: 0,
                     z[2]: 0,
                     # Leg 3
@@ -197,10 +197,10 @@ def construct_structure(file):
                     x[16]: -out['hip'][0],
                     y[16]: out['hip'][1],
                     z[16]: out['hip'][2],
-                    x[17]: out['knee'][0],
+                    x[17]: -out['knee'][0],
                     y[17]: out['knee'][1],
                     z[17]: out['knee'][2],
-                    x[3]: out['knee_link']}
+                    x[3]: -out['knee_link']}
                     y[3]: 0,
                     z[3]: 0,
     return links_params
