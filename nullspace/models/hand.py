@@ -44,16 +44,16 @@ Xtree = [None,  # 0
          None,  # 4
          None,  # 5
          SXForm(eye(3), r[6]),
-         SXForm(perfect_Ez_pi, r[7]),
+         SXForm(eye(3), r[7]),
          SXForm(eye(3), r[8]),
          SXForm(eye(3), r[9]),
-         SXForm(perfect_Ez_pi, r[10]),
+         SXForm(eye(3), r[10]),
          SXForm(eye(3), r[11]),
          SXForm(eye(3), r[12]),
-         SXForm(perfect_Ez_pi, r[13]),
+         SXForm(eye(e), r[13]),
          SXForm(eye(3), r[14]),
          SXForm(eye(3), r[15]),
-         SXForm(perfect_Ez_pi, r[16]),
+         SXForm(eye(3), r[16]),
          SXForm(eye(3), r[17])]
 
 gcLocation = [SXForm(eye(3), r[0]),
