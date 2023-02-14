@@ -18,7 +18,7 @@ jobs:
         # code has codepaths for either, conditional on what is installed.
         # See https://github.com/bluesky/event-model/pull/175 and
         # https://github.com/bluesky/event-model/issues/145 for more context.
-        jsonschema-version: [1, 2]
+        jsonschema-version: [0, 1, 2]
       fail-fast: false
     steps:
 
