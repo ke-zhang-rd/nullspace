@@ -24,10 +24,6 @@ nullspace
 Documentation
 -------------
 
-* `Documentation <https://ke-zhang-rd.github.io/nullspace>`_
-
 
 Features
 --------
-
-* TODO
