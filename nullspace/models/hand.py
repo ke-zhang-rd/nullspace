@@ -200,7 +200,7 @@ def construct_structure(file):
                     x[17]: -out['knee'][0],
                     y[17]: out['knee'][1],
                     z[17]: out['knee'][2],
-                    x[3]: -out['knee_link']}
+                    x[3]: -out['knee_link'],
                     y[3]: 0,
-                    z[3]: 0,
+                    z[3]: 0}
     return links_params
