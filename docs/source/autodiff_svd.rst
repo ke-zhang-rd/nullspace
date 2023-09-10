@@ -1,6 +1,6 @@
-===========
-autodiffsvd
-===========
+============
+autodiff_svd
+============
 
 .. toctree::
    :maxdepth: 2

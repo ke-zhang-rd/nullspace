@@ -1,3 +1,3 @@
 ===================
-Best-Fit Hyperplane
+Best Fit Hyperplane
 ===================

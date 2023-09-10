@@ -1,9 +1,9 @@
 ==============
-pseudo_inverse
+pseudo Inverse
 ==============
 
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
 
-   notebooks/pseudoinverse.ipynb
+   notebooks/pseudo_inverse.ipynb

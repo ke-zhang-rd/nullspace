@@ -14,10 +14,17 @@ nullspace Documentation
    usage
    controlflow
    plot
-   autodiffsvd
+   autodiff_svd
    links_params
-   bestfithyperplane
-   pseudoinverse.rst
-   angularmomentumderivative.rst
+   best_fit_hyperplane
+   pseudo_inverse
+   angular_momentum_derivative
+   composite_inertia
+   dof_computation
+   dynamic_consistent_inverse
+   eigen_chain_multiplication
+   eigen_matrix_practice
+   quaternion
+   nullspace_basic
    release-history
    min_versions
