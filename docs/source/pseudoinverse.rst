@@ -1,6 +1,6 @@
-===========
-autodiffsvd
-===========
+==============
+pseudo_inverse
+==============
 
 .. toctree::
    :maxdepth: 2
