@@ -17,5 +17,6 @@ nullspace Documentation
    autodiffsvd
    links_params
    bestfithyperplane
+   pseudoinverse.rst
    release-history
    min_versions
