@@ -18,5 +18,6 @@ nullspace Documentation
    links_params
    bestfithyperplane
    pseudoinverse.rst
+   angularmomentumderivative.rst
    release-history
    min_versions
