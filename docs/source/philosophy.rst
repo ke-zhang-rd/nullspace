@@ -2,12 +2,19 @@
 Philosophy
 ==========
 
-If there are multiple end effectors need to coordinate move together. If we define it in a seriously way. There are a Object define by the
-connection(virtual connection) between ee. This Object could have a orientation and position if a frame fix on it.
+If there are multiple end effectors need to coordinate move together. We manipulate those EE by define
+a virtual obejct among those EE.
+
+If we define it in a seriously way. 
+
+This object could have a orientation and position if a frame fix on it.
 
 If the number of end effector(num)
+
 N = 2, X is a line
+
 N = 3, X is a triangle
+
 N = 4, X is a tetrahedron
 
 
