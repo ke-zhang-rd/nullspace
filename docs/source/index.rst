@@ -15,6 +15,7 @@ nullspace Documentation
    controlflow
    plot
    autodiff_svd
+   robot_descriptor
    links_params
    best_fit_hyperplane
    pseudo_inverse
