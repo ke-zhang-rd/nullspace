@@ -14,6 +14,7 @@ nullspace Documentation
    usage
    controlflow
    plot
+   notebooks/autodiff_svd.ipynb
    autodiff_svd
    robot_descriptor
    links_params
