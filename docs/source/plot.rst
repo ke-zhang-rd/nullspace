@@ -2,5 +2,5 @@
 Plot
 ====
 
-.. include:: notebooks/autodiff_svd.ipynb
-
+.. include::
+   notebooks/autodiff_svd.ipynb
