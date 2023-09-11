@@ -2,4 +2,9 @@
 autodiff_svd
 ============
 
-notebooks/autodiff_svd.ipynb
+.. toctree::
+   :hidden:
+   :maxdepth: 2
+   :caption: Contents:
+
+   notebooks/autodiff_svd.ipynb
