@@ -14,7 +14,7 @@ nullspace Documentation
    usage
    controlflow
    visualization
-   best_fit_hyperplane
+   best_fit_plane
    notebooks/autodiff_svd.ipynb
    robot_descriptor
    notebooks/pseudo_inverse.ipynb
