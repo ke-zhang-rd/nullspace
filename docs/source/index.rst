@@ -14,12 +14,11 @@ nullspace Documentation
    usage
    controlflow
    plot
+   best_fit_hyperplane
    notebooks/autodiff_svd.ipynb
-   autodiff_svd
    robot_descriptor
    links_params
-   best_fit_hyperplane
-   pseudo_inverse
+   notebooks/pseudo_inverse.ipynb
    angular_momentum_derivative
    composite_inertia
    dof_computation

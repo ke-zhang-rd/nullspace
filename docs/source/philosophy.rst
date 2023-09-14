@@ -2,6 +2,28 @@
 Philosophy
 ==========
 
+This package offer you a new floating-base control strategy.
+
+Intuitively, we might wanna control the orientation and position of base directly or by any
+inverse kinematics like approach. However, the contact point which could be abstracted to a
+ball joint hinge make it almost impossible.
+
+Others try to introduce the mimic 6 joints in configuration space to control base directly.
+However, this control is unrealistic.
+
+Here, if we assume the contract point isn't slip. The connection between all contact points
+will form a virtual rigid object.
+
+We are controling this virtual object relative to base.
+
+Take quadruped robot dog as a example. Please think it from a astronaut view in space.
+
+    "There is quadruped robot dog contact with Earth"
+
+When you try to control the floating base of quadruped relative to Earth, you could just control the
+contact area on earth relative to base. By doing this, forward caluculation is all you need.
+
+
 If there are multiple end effectors need to coordinate move together. We manipulate those EE by define
 a virtual obejct among those EE.
 
