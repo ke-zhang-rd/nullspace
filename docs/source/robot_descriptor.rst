@@ -42,4 +42,5 @@ example, each line has similar format(4 links and 3 joints), it should be fine t
 and joints. However, it has to be one link, one joint, one link...
 
 robotBuilder take the robot each arm's linkage parameter as input and return a symbolic position with
-joint variable as symbols.
+joint variable as symbols. The return is a nested list. Each list represent one arm. And inside each list
+, it is the position symbolic of each joint + ee for certain arm. For example, return[i][j] represent the symbolic position of i-th arm and j-th joint position with *q* as joint variable.
