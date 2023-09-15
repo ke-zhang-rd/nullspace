@@ -25,6 +25,7 @@ nullspace Documentation
    :maxdepth: 1
 
    autodiff_svd    
+   robot_builder
 
 .. toctree::
    :caption: Robotics Guide
