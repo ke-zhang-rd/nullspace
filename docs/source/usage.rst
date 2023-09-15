@@ -15,6 +15,6 @@ Start by importing nullspace.
 
     import nullspace
 
-.. include::
+.. notebook::
 
     ../../examples/virtual_rigid_kinematics.ipynb
