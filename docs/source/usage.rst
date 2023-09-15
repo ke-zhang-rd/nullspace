@@ -15,5 +15,6 @@ Start by importing nullspace.
 
     import nullspace
 
+.. toctree::
 
-../../examples/virtual_rigid_kinematics
+    ../../examples/virtual_rigid_kinematics.ipynb

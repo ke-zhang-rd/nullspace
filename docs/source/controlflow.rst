@@ -31,8 +31,9 @@ The control is based on simple formula
 
 It has two parts, the Jacobian and error which has been demonstrated in chapter below.
 
+.. toctree::
 
-notebooks/pseudo_inverse.ipynb
+    notebooks/pseudo_inverse.ipynb
 
 Error Update
 ------------
