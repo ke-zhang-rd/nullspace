@@ -15,6 +15,4 @@ Start by importing nullspace.
 
     import nullspace
 
-.. include::
-
-    ../../examples/virtual_rigid_kinematics.ipynb
+.. autofunction:: nullspace.__init__.autodiff_svd

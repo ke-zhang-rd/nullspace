@@ -21,6 +21,12 @@ nullspace Documentation
    visualization
 
 .. toctree::
+   :cpation: Source Code
+   :maxdepth: 1
+
+   autodiff_svd    
+
+.. toctree::
    :caption: Robotics Guide
    :maxdepth: 1
 
