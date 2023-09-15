@@ -7,8 +7,9 @@ nullspace Documentation
 =======================
 
 .. toctree::
-   :maxdepth: 2
-   
+   :caption: User Guide
+   :maxdepth: 1
+
    philosophy
    installation
    usage
@@ -18,13 +19,19 @@ nullspace Documentation
    notebooks/autodiff_svd.ipynb
    robot_descriptor
    notebooks/pseudo_inverse.ipynb
+   nullspace_basic
+
+.. toctree::
+   :caption: Robotics Guide
+   :maxdepth: 1
+
+   notebooks/quaternion.ipynb
    angular_momentum_derivative
    composite_inertia
    dof_computation
    dynamic_consistent_inverse
    eigen_chain_multiplication
    eigen_matrix_practice
-   quaternion
-   nullspace_basic
+   
    release-history
    min_versions
