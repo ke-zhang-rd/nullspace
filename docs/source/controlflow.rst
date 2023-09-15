@@ -31,7 +31,7 @@ The control is based on simple formula
 
 It has two parts, the Jacobian and error which has been demonstrated in chapter below.
 
-
+    notebooks/pseudo_inverse.ipynb
 
 Error Update
 ------------

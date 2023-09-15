@@ -11,15 +11,14 @@ nullspace Documentation
    :maxdepth: 1
 
    philosophy
-   installation
    usage
    controlflow
-   visualization
-   best_fit_plane
-   notebooks/autodiff_svd.ipynb
    robot_descriptor
-   notebooks/pseudo_inverse.ipynb
+   error_update
+   best_fit_plane
    nullspace_basic
+   notebooks/autodiff_svd.ipynb
+   visualization
 
 .. toctree::
    :caption: Robotics Guide
