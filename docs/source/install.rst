@@ -15,6 +15,3 @@ Start by importing nullspace.
 
     import nullspace
 
-.. literalinclude::
-
-    ../../examples/virtual_rigid_kinematics.ipynb

@@ -11,7 +11,8 @@ nullspace Documentation
    :maxdepth: 1
 
    philosophy
-   usage
+   install
+   examples/virtual_rigid_kinematics.ipynb
    controlflow
    robot_descriptor
    error_update
