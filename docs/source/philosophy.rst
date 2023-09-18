@@ -5,16 +5,17 @@ Philosophy
 This package offer you a new floating-base control strategy.
 
 Intuitively, we might wanna control the orientation and position of base directly or by any
-inverse kinematics like approach. However, the contact point which could be abstracted to a
-ball joint hinge make it almost impossible.
+inverse kinematics like approach. However, the contact point between legs and ground
+which could be abstracted to a ball joint hinge make it almost impossible.
 
-Others try to introduce the mimic 6 joints in configuration space to control base directly.
-However, this control is unrealistic.
+Others try to introduce the 6 more dimensions in configuration space for base
+ directly. However, configure the position and orientation of base directly looks 
+unrealistic.
 
-Here, if we assume the contract point isn't slip. The connection between all contact points
-will form a virtual rigid object.
-
-We are controling this virtual object relative to base.
+Here, In assumption that contract point isn't slip, the connection between all contact points
+could form a virtual rigid object. That's a rigid object that has all contact point
+position fixed on it. In other words, the distance between each contact points of
+legs are unchanged.
 
 Take quadruped robot dog as a example. Please think it from a astronaut view in space.
 
