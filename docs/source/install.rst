@@ -2,14 +2,12 @@
 Install
 =======
 
-Installation:
-
-At the command line::
+At the command line or your virtual environment::
 
     $ pip install nullspace
 
 
-Start by importing nullspace.
+Import like just like: 
 
 .. code-block:: python
 
