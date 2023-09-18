@@ -1,6 +1,6 @@
-=============================
-A Example of Robot Descriptor
-=============================
+================
+Robot Descriptor
+================
 
 A quadruped
 
