@@ -6,39 +6,13 @@ This package offer you a new floating-base control strategy.
 
 Intuitively, we might wanna control the orientation and position of base directly or by any
 inverse kinematics like approach. However, the contact point between legs and ground
-which could be abstracted to a ball joint hinge make it almost impossible.
+which could be abstracted to a ball joint hinge make it almost impossible. Others try to introduce
+the 6 more dimensions in configuration space for base directly. However, control position and 
+orientation of base directly is unrealistic.
 
-Others try to introduce the 6 more dimensions in configuration space for base
- directly. However, configure the position and orientation of base directly looks 
-unrealistic.
-
-Here, In assumption that contract point isn't slip, the connection between all contact points
-could form a virtual rigid object. That's a rigid object that has all contact point
-position fixed on it. In other words, the distance between each contact points of
-legs are unchanged.
-
-Take quadruped robot dog as a example. Please think it from a astronaut view in space.
-
-    "There is quadruped robot dog contact with Earth"
-
-When you try to control the floating base of quadruped relative to Earth, you could just control the
-contact area on earth relative to base. By doing this, forward caluculation is all you need.
-
-
-If there are multiple end effectors need to coordinate move together. We manipulate those EE by define
-a virtual obejct among those EE.
-
-If we define it in a seriously way. 
-
-This object could have a orientation and position if a frame fix on it.
-
-If the number of end effector(num)
-
-N = 2, X is a line
-
-N = 3, X is a triangle
-
-N = 4, X is a tetrahedron
+In assumption that contract points isn't slip, connecting all contact points could form a virtual 
+rigid object, a object that has all contact points fixed on it. In other words, The distance between any two given contact points on this virtual rigid body remains constant. Control this virtual rigid body 
+enable us control base. By doing this, forward caluculation is all you need.
 
 
 In a prioritized tasks definition:
