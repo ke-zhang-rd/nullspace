@@ -2,7 +2,7 @@
 Philosophy
 ==========
 
-This package offers you a new floating-base control strategy.
+This package offers you a new floating-base robotics control strategy.
 
 Intuitively, we might wanna control the orientation and position of base directly or by any
 inverse kinematics like approach. However, the contact point between legs and ground
