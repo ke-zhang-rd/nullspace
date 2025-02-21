@@ -8,7 +8,7 @@ nullspace Documentation
 
 .. toctree::
    :caption: User Guide
-   :maxdepth: 1
+   :maxdepth: 2
 
    philosophy
    install
@@ -23,14 +23,14 @@ nullspace Documentation
 
 .. toctree::
    :caption: Source Code
-   :maxdepth: 1
+   :maxdepth: 2
 
    autodiff_svd    
    robot_builder
 
 .. toctree::
    :caption: Robotics Guide
-   :maxdepth: 1
+   :maxdepth: 2
 
    notebooks/quaternion.ipynb
    angular_momentum_derivative
