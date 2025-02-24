@@ -6,7 +6,6 @@ from . import rbda, se3, models
 
 from ._version import get_versions
 
-
 __version__ = get_versions()['version']
 del get_versions
 
@@ -279,6 +278,3 @@ def autodiff_svd(A, q_star, *, symbolic=False):
                 np.array(ds_tensor.subs(q_star), dtype=float),
                 np.array(dv_tensor.subs(q_star), dtype=float))
 
-
-from . import _version
-__version__ = _version.get_versions()['version']
