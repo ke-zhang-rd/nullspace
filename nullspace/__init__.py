@@ -277,4 +277,3 @@ def autodiff_svd(A, q_star, *, symbolic=False):
         return (np.array(du_tensor.subs(q_star), dtype=float),
                 np.array(ds_tensor.subs(q_star), dtype=float),
                 np.array(dv_tensor.subs(q_star), dtype=float))
-
