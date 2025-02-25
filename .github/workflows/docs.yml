@@ -5,11 +5,11 @@ on: [push, pull_request]
 
 jobs:
   publish-docs:
-    name: Build and publish documentation
+    name: Build and publish docs
     runs-on: ubuntu-22.04
     strategy:
       matrix:
-        python-version: ["3.8", "3.9", "3.10", "3.11", "3.12", "3.13"]
+        python-version: ["3.11", "3.12", "3.13"]
       fail-fast: false
 
     steps:
@@ -55,7 +55,7 @@ jobs:
         # We pin to the SHA, not the tag, for security reasons.
         # https://docs.github.com/en/free-pro-team@latest/actions/learn-github-actions/security-hardening-for-github-actions#using-third-party-actions
         # if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' && matrix.python-version == '3.8' }}
-        if: github.repository_owner == 'ke-zhang-rd' && github.ref_name == 'main'
+        if: ${{ github.repository_owner == 'ke-zhang-rd' && github.ref_name == 'main' && matrix.python-version == '3.13' }}
         # uses: peaceiris/actions-gh-pages@bbdfb200618d235585ad98e965f4aafc39b4c501  # v3.7.3
         uses: peaceiris/actions-gh-pages@4f9cc6602d3f66b9c108549d475ec49e8ef4d45e # v4.0.0
         with:
