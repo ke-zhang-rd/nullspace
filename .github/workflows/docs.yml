@@ -5,7 +5,7 @@ on: [push, pull_request]
 
 jobs:
   publish-docs:
-    name: Build and publish documentation
+    name: Build and publish docs
     runs-on: ubuntu-22.04
     strategy:
       matrix:
