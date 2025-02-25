@@ -8,10 +8,11 @@ nullspace Documentation
 
 .. toctree::
    :caption: User Guide
-   :maxdepth: 2
+   :maxdepth: 1
 
    philosophy
    install
+   get_start
    examples/virtual_rigid_kinematics.ipynb
    controlflow
    robot_descriptor
@@ -23,14 +24,14 @@ nullspace Documentation
 
 .. toctree::
    :caption: Source Code
-   :maxdepth: 2
+   :maxdepth: 1
 
    autodiff_svd    
    robot_builder
 
 .. toctree::
    :caption: Robotics Guide
-   :maxdepth: 2
+   :maxdepth: 1
 
    notebooks/quaternion.ipynb
    angular_momentum_derivative
