@@ -60,7 +60,7 @@ jobs:
         uses: peaceiris/actions-gh-pages@4f9cc6602d3f66b9c108549d475ec49e8ef4d45e # v4.0.0
         with:
           deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY}}
-          publish_branch: master
+          publish_branch: gh-pages
           publish_dir: ./docs/build/html
           external_repository: ke-zhang-rd/ke-zhang-rd.github.io
           destination_dir: ${{ env.REPOSITORY_NAME }}
